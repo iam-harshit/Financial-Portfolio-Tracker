@@ -1,0 +1,8 @@
+{
+    "rewrites": [
+        {
+            "source": "/assets/:path*",
+            "destination": "https://cdn.jsdelivr.net/gh/iam-harshit/Financial-Portfolio-Tracker@v1.0.0/assets/:path*"
+        }
+    ]
+}
