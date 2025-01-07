@@ -10,4 +10,16 @@ export default defineConfig({
       "@": path.resolve(new URL(".", import.meta.url).pathname, "./src"),
     },
   },
+  build: {
+    rollupOptions: {
+      output: {
+        manualChunks(id) {
+          // Exclude files in the 'assets' folder from being bundled
+          if (id.includes("assets")) {
+            return null;
+          }
+        },
+      },
+    },
+  },
 });
