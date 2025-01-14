@@ -7,6 +7,7 @@ export default {
     "plugin:react/recommended",
     "plugin:prettier/recommended",
     "plugin:security/recommended",
+    "plugin:jsx-a11y/recommended",
   ],
   parserOption: {
     ecmaFeatures: {
@@ -15,7 +16,7 @@ export default {
     ecmaVersion: "latest",
     sourceType: "module",
   },
-  plugins: ["react", "prettier", "security"],
+  plugins: ["react", "prettier", "security", "jsx-a11y"],
   rules: {
     "prettier/prettier": ["error"],
 
@@ -43,5 +44,50 @@ export default {
     "security/detect-eval-with-expression": "error",
     "security/detect-unsafe-regex": "error",
     "security/detect-unsafe-redirect": "error",
+
+    "jsx-a11y/alt-text": [
+      "error",
+      { elements: ["img", "object", "area", "input[type='image']"] },
+    ],
+    "jsx-a11y/anchor-is-valid": [
+      "error",
+      {
+        components: ["Link"],
+        specialLink: ["to"],
+        aspects: ["noHref", "invalidHref", "preferButton"],
+      },
+    ],
+    "jsx-a11y/no-noninteractive-element-interactions": [
+      "error",
+      {
+        handlers: [
+          "onClick",
+          "onKeyUp",
+          "onKeyDown",
+          "onKeyPress",
+          "onFocus",
+          "onBlur",
+        ],
+      },
+    ],
+    "jsx-a11y/aria-role": ["error", { ignoreNonDOM: false }],
+    "jsx-a11y/aria-props": "error",
+    "jsx-a11y/aria-proptypes": "error",
+    "jsx-a11y/interactive-supports-focus": "error",
+    "jsx-a11y/label-has-associated-control": [
+      "error",
+      {
+        assert: "htmlFor",
+        depth: 3,
+      },
+    ],
+    "jsx-a11y/no-autofocus": ["error", { ignoreNonDOM: true }],
+    "jsx-a11y/click-events-have-key-events": "error",
+    "jsx-a11y/heading-has-content": ["error", { components: [""] }],
+    "jsx-a11y/no-noninteractive-tabindex": "error",
+    "jsx-a11y/role-supports-aria-props": "error",
+    "jsx-a11y/no-low-contrast": "warn",
+    "jsx-a11y/no-redundant-roles": "error",
+    "jsx-a11y/scope": "error",
   },
 };
