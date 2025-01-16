@@ -8,6 +8,8 @@ export default defineConfig({
   resolve: {
     alias: {
       "@": path.resolve(new URL(".", import.meta.url).pathname, "./src"),
+      "@": path.resolve(__dirname, "./src"),
+      "@shadcn/ui": path.resolve(__dirname, "./node_modules/@shadcn/ui/src"),
     },
   },
   build: {
